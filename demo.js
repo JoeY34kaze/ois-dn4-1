@@ -4,6 +4,7 @@ var queryUrl = baseUrl + '/query';
 
 var username = "ois.seminar";
 var password = "ois4fri";
+var ehrIDs=[];
 
 function getSessionId() {
     var response = $.ajax({
@@ -47,6 +48,7 @@ function kreirajEHRzaBolnika() {
 		            data: JSON.stringify(partyData),
 		            success: function (party) {
 		                if (party.action == 'CREATE') {
+		                	ehrIDs[0]=ehrId;
 		                    $("#kreirajSporocilo").html("<span class='obvestilo label label-success fade-in'>Uspešno kreiran EHR '" + ehrId + "'.</span>");
 		                    console.log("Uspešno kreiran EHR '" + ehrId + "'.");
 		                    $("#preberiEHRid").val(ehrId);
@@ -88,17 +90,17 @@ function preberiEHRodBolnika() {
 	}	
 }
 function blabla(){
-	dodajMeritveVitalnihZnakov("2013-11-20T12:00Z", 178, 86, 120, 86, "James Bond");
+	console.log("smo v blabla");
+	dodajMeritveVitalnihZnakov(ehrIDs[0], "2013-11-20T12:00Z", 178, 86, 120, 86, "James Bond", 99);
 }
 
-function dodajMeritveVitalnihZnakov(datumUra, visina, teza, sistolicniKrvniTlak1, diastolicniKrvniTlak1, merilec1) {
+function dodajMeritveVitalnihZnakov(ehrid, datumUra, visina, teza, sistolicniKrvniTlak1, diastolicniKrvniTlak1, merilec1, tempe) {
 	sessionId = getSessionId();
-
 	var ehrId = $("#dodajVitalnoEHR").val();
 	var datumInUra = datumUra;
 	var telesnaVisina = visina;
 	var telesnaTeza = teza;
-	var telesnaTemperatura = 36;
+	var telesnaTemperatura = tempe;
 	var sistolicniKrvniTlak = sistolicniKrvniTlak1;
 	var diastolicniKrvniTlak = diastolicniKrvniTlak1;
 	var nasicenostKrviSKisikom = 0;
