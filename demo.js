@@ -143,9 +143,62 @@ function dodajMeritveVitalnihZnakov() {
 		});
 	}
 }
-
-
 function preberiMeritveVitalnihZnakov() {
+	console.log("branje meritev")
+	sessionId = getSessionId();	
+
+	var ehrId = $("#meritveVitalnihZnakovEHRid").val();
+	var tip = "telesna teža";
+
+	if (!ehrId || ehrId.trim().length == 0 || !tip || tip.trim().length == 0) {
+	} else {
+		console.log("1");
+		$.ajax({
+			url: baseUrl + "/demographics/ehr/" + ehrId + "/party",
+	    	type: 'GET',
+	    	headers: {"Ehr-Session": sessionId},
+	    	success: function (data) {
+	    				console.log("2");
+				var party = data.party;
+				if (tip == "telesna teža") {
+					$.ajax({
+					    url: baseUrl + "/view/" + ehrId + "/" + "weight",
+					    type: 'GET',
+					    headers: {"Ehr-Session": sessionId},
+					    success: function (res) {
+					    			console.log("3");
+					    	if (res.length > 0) {
+					    		// res je 0
+					    				console.log("4");
+						        for (var i in res) {
+						        			console.log("5");
+						        	
+						           // results += "<tr><td>" + res[i].time + "</td><td class='text-right'>" + res[i].weight + " " 	+ res[i].unit + "</td>";
+						            $("#test").append("\n "+res[i].time+"   "+res[i].weight + "   " 	+ res[i].unit);
+						            		console.log("\n "+res[i].time+"   "+res[i].weight + "   " 	+ res[i].unit);
+						        }
+						      //  results += "</table>";
+						     
+					    	} else {
+					    				console.log("6");
+					    	}
+					    },
+					    error: function() {
+							console.log(JSON.parse(err.responseText).userMessage);
+					    }
+					});					
+				}
+	    	},
+	    	error: function(err) {
+				console.log(JSON.parse(err.responseText).userMessage);
+	    	}
+		});
+	}
+}
+
+
+
+function preberiMeritveVitalnihZnakov2() {
 	sessionId = getSessionId();	
 
 	var ehrId = $("#meritveVitalnihZnakovEHRid").val();
