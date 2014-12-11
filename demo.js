@@ -79,11 +79,9 @@ function preberiEHRodBolnika() {
 			headers: {"Ehr-Session": sessionId},
 	    	success: function (data) {
 				var party = data.party;
-				$("#preberiSporocilo").html("<span class='obvestilo label label-success fade-in'>Bolnik '" + party.firstNames + " " + party.lastNames + "', ki se je rodil '" + party.dateOfBirth + "'.</span>");
 				console.log("Bolnik '" + party.firstNames + " " + party.lastNames + "', ki se je rodil '" + party.dateOfBirth + "'.");
 			},
 			error: function(err) {
-				$("#preberiSporocilo").html("<span class='obvestilo label label-danger fade-in'>Napaka '" + JSON.parse(err.responseText).userMessage + "'!");
 				console.log(JSON.parse(err.responseText).userMessage);
 			}
 		});
@@ -112,7 +110,7 @@ function blabla(){
 
 function dodajMeritevVitalnihZnakov(ehrid, datumUra, visina, teza, tempe, sistolicniKrvniTlak1, diastolicniKrvniTlak1, merilec1) {
 	sessionId = getSessionId();
-	var ehrId = $("#dodajVitalnoEHR").val();
+	var ehrId = ehrid;
 	var datumInUra = datumUra;
 	var telesnaVisina = visina;
 	var telesnaTeza = teza;
@@ -217,7 +215,7 @@ function preberiMeritveVitalnihZnakov() {
 
 
 
-
+/*
 function preberiMeritveVitalnihZnakov2() {
 	sessionId = getSessionId();	
 
@@ -321,7 +319,7 @@ function preberiMeritveVitalnihZnakov2() {
 		});
 	}
 }
-
+*/
 
 $(document).ready(function() {
 	$('#preberiObstojeciEHR').change(function() {
