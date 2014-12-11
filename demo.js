@@ -87,20 +87,22 @@ function preberiEHRodBolnika() {
 		});
 	}	
 }
+function blabla(){
+	dodajMeritveVitalnihZnakov("2013-11-20T12:00Z", 178, 86, 120, 86, "James Bond");
+}
 
-
-function dodajMeritveVitalnihZnakov() {
+function dodajMeritveVitalnihZnakov(datumUra, visina, teza, sistolicniKrvniTlak1, diastolicniKrvniTlak1, merilec1) {
 	sessionId = getSessionId();
 
 	var ehrId = $("#dodajVitalnoEHR").val();
-	var datumInUra = "2014-5-5";
-	var telesnaVisina = 500;
-	var telesnaTeza = 500;
-	var telesnaTemperatura = 500;
-	var sistolicniKrvniTlak = 500;
-	var diastolicniKrvniTlak = 500;
-	var nasicenostKrviSKisikom = 500;
-	var merilec = "Zaba";
+	var datumInUra = datumUra;
+	var telesnaVisina = visina;
+	var telesnaTeza = teza;
+	var telesnaTemperatura = 36;
+	var sistolicniKrvniTlak = sistolicniKrvniTlak1;
+	var diastolicniKrvniTlak = diastolicniKrvniTlak1;
+	var nasicenostKrviSKisikom = 0;
+	var merilec = "a";
 
 	if (!ehrId || ehrId.trim().length == 0) {
 		$("#dodajMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-warning fade-in'>Prosim vnesite zahtevane podatke!</span>");
