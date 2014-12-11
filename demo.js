@@ -90,6 +90,8 @@ function preberiEHRodBolnika() {
 	}	
 }
 function blabla(){
+	//blabla dela pravilno
+	
 	console.log("smo v blabla");
 		dodajMeritevVitalnihZnakov( ehrIDs[0], "2000-11-20T12:00Z", 167, 60, 36, 120, 70, "James Bond");
 		dodajMeritevVitalnihZnakov( ehrIDs[0], "2001-11-20T12:00Z", 168, 64, 36, 120, 70, "James Bond");
@@ -121,7 +123,6 @@ function dodajMeritevVitalnihZnakov(ehrid, datumUra, visina, teza, tempe, sistol
 	var merilec = "a";
 
 	if (!ehrId || ehrId.trim().length == 0) {
-		$("#dodajMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-warning fade-in'>Prosim vnesite zahtevane podatke!</span>");
 	} else {
 		$.ajaxSetup({
 		    headers: {"Ehr-Session": sessionId}
@@ -150,10 +151,8 @@ function dodajMeritevVitalnihZnakov(ehrid, datumUra, visina, teza, tempe, sistol
 		    data: JSON.stringify(podatki),
 		    success: function (res) {
 		    	console.log(res.meta.href);
-		        $("#dodajMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-success fade-in'>" + res.meta.href + ".</span>");
 		    },
 		    error: function(err) {
-		    	$("#dodajMeritveVitalnihZnakovSporocilo").html("<span class='obvestilo label label-danger fade-in'>Napaka '" + JSON.parse(err.responseText).userMessage + "'!");
 				console.log(JSON.parse(err.responseText).userMessage);
 		    }
 		});
