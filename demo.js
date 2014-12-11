@@ -91,10 +91,24 @@ function preberiEHRodBolnika() {
 }
 function blabla(){
 	console.log("smo v blabla");
-	dodajMeritveVitalnihZnakov(ehrIDs[0], "2013-11-20T12:00Z", 178, 86, 120, 86, "James Bond", 99);
+		dodajMeritevVitalnihZnakov( ehrIDs[0], "2000-11-20T12:00Z", 167, 60, 36, 120, 70, "James Bond");
+		dodajMeritevVitalnihZnakov( ehrIDs[0], "2001-11-20T12:00Z", 168, 64, 36, 120, 70, "James Bond");
+		dodajMeritevVitalnihZnakov(ehrIDs[0], "2002-11-20T12:00Z", 169, 66, 36, 120, 70, "James Bond");
+		dodajMeritevVitalnihZnakov(ehrIDs[0], "2003-11-20T12:00Z", 171, 72, 36, 120, 70, "James Bond");
+		dodajMeritevVitalnihZnakov(ehrIDs[0], "2004-11-20T12:00Z", 172, 72, 36, 120, 70, "James Bond");
+		dodajMeritevVitalnihZnakov(ehrIDs[0], "2005-11-20T12:00Z", 173, 75, 36, 110, 65, "James Bond");
+		dodajMeritevVitalnihZnakov(ehrIDs[0], "2006-11-20T12:00Z", 173, 75, 36, 110, 64, "James Bond");
+		dodajMeritevVitalnihZnakov(ehrIDs[0], "2007-11-20T12:00Z", 174, 68, 36, 108, 63, "James Bond");
+		dodajMeritevVitalnihZnakov(ehrIDs[0], "2008-11-20T12:00Z", 174, 61, 36, 109, 61, "James Bond");
+		dodajMeritevVitalnihZnakov(ehrIDs[0], "2009-11-20T12:00Z", 175, 52, 36, 108, 59, "James Bond");
+		dodajMeritevVitalnihZnakov(ehrIDs[0], "2010-11-20T12:00Z", 176, 48, 36, 105, 58, "James Bond");
+		dodajMeritevVitalnihZnakov(ehrIDs[0], "2011-11-20T12:00Z", 177, 51, 36, 108, 60, "James Bond");
+		dodajMeritevVitalnihZnakov(ehrIDs[0], "2012-11-20T12:00Z", 178, 54, 36, 111, 62, "James Bond");
+		dodajMeritevVitalnihZnakov(ehrIDs[0], "2013-11-20T12:00Z", 178, 60, 36, 113, 63, "James Bond");
+		dodajMeritevVitalnihZnakov(ehrIDs[0], "2014-11-20T12:00Z", 179, 65, 36, 115, 66, "James Bond");
 }
 
-function dodajMeritveVitalnihZnakov(ehrid, datumUra, visina, teza, sistolicniKrvniTlak1, diastolicniKrvniTlak1, merilec1, tempe) {
+function dodajMeritevVitalnihZnakov(ehrid, datumUra, visina, teza, tempe, sistolicniKrvniTlak1, diastolicniKrvniTlak1, merilec1) {
 	sessionId = getSessionId();
 	var ehrId = $("#dodajVitalnoEHR").val();
 	var datumInUra = datumUra;
